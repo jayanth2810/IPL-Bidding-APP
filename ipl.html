@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+
+<head>
+<link rel="stylesheet" type="text/css" href="ipl.css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery-css-transform.js"></script>
+<script type="text/javascript" src="rotate3Di.js"></script>
+</head>
+
+<body>
+<font color="grey">
+<marquee><h1><big>ABACUS BID BASH 2K13</big></h1></marquee></font>
+<div id="pic">
+</div>
+	
+<font color="grey">
+<div id="id"></div>
+<div id="sold"></div>
+
+<div id="name"></div>
+<div id="country"></div>
+<div id="price"></div>
+</font>
+
+<div id="d1"><button id="b1">PREV</button></div>
+<div id="d2"><button id="b2">NEXT</button></div>
+<div id="d3"><button id="b3">SOLD</button></div>
+</body>
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+$(document).ready(function () {
+
+	i=1;
+
+	$.get("first.php",{ans:i}, function(responseText){$("#id").html(responseText);});
+	$.get("second.php",{ans:i}, function(responseText){$("#name").html(responseText);});
+	$.get("third.php",{ans:i}, function(responseText){$("#country").html(responseText);});
+	$.get("fourth.php",{ans:i}, function(responseText){$("#price").html(responseText);});
+	$.get("fifth.php",{ans:i}, function(responseText){$("#sold").html(responseText);});
+	$.get("seventh.php",{ans:i}, function(responseText){$("#pic").html(responseText);});
+});
+</script>
+<script language="javascript">
+
+$("#b3").click(function()
+{
+	$.get("sixth.php",{ans:i}, function(responseText){$("#sold").html(responseText);});
+	
+});
+
+$("#b2").click(function()
+{
+	$.get("first.php",{ans:i+1}, function(responseText){$("#id").html(responseText);});
+	$.get("second.php",{ans:i+1}, function(responseText){$("#name").html(responseText);});
+	$.get("third.php",{ans:i+1}, function(responseText){$("#country").html(responseText);});
+	$.get("fourth.php",{ans:i+1}, function(responseText){$("#price").html(responseText);});
+	$.get("fifth.php",{ans:i+1}, function(responseText){$("#sold").html(responseText);});
+	$.get("seventh.php",{ans:i+1}, function(responseText){$("#pic").html(responseText);});
+	i=i+1;
+});
+
+$("#b1").click(function()
+{
+	$.get("first.php",{ans:i-1}, function(responseText){$("#id").html(responseText);});
+	$.get("second.php",{ans:i-1}, function(responseText){$("#name").html(responseText);});
+	$.get("third.php",{ans:i-1}, function(responseText){$("#country").html(responseText);});
+	$.get("fourth.php",{ans:i-1}, function(responseText){$("#price").html(responseText);});
+	$.get("fifth.php",{ans:i-1}, function(responseText){$("#sold").html(responseText);});
+	$.get("seventh.php",{ans:i-1}, function(responseText){$("#pic").html(responseText);});
+	i=i-1;
+	
+});
+
+</script>
+</html>
